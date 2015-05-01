@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Search Page</title>
+  <link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.css">
+  <script src="jquery-1.11.2.js"></script>
+  <script src="jquery-ui-1.11.4.custom/jquery-ui.js"></script>
+  <script>
+  $(function() {
+    $.ui.autocomplete.prototype._renderItem = function( ul, item){ // change style of suggestion
+      // write code to bold the suggestion except the part that
+      // matches the query term
+      /** WRITE CODE HERE, REMOVE THIS LINE AFTER COMPLETION **/      
+    };
+    $( "#searchBox" ).autocomplete({
+        // complete the jquery code here
+        /** WRITE CODE HERE, REMOVE THIS LINE AFTER COMPLETION **/
+      },
+      select: function(event, ui) { // select a suggestion, trigger submit
+        // assign value back to the form element        
+        /** WRITE CODE HERE, REMOVE THIS LINE AFTER COMPLETION **/        
+      },
+      response: function ( event, ui ) {
+      }
+    });
+  });
+  </script>
+</head>
+<body>
+<form name="gs" method="POST" action="result.php">
+<div class="ui-widget">
+  <input type="text" id="searchBox" name="q" size="20" value="">
+</div>
+</form>
+</body>
+</html>
