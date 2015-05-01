@@ -25,7 +25,7 @@ foreach ($current_data_array as $key => $val) {
   // Write code to match term to suggestions using case-insensitive matching
   // Retrieve a maximum of 10 suggestions and create JSON
   if (stripos($val, $term) !== false ){
-    if ($count == 10)
+    if ($count == $SUGGESTION_MAX)
       break;
     
     if ($count++ == 0)
