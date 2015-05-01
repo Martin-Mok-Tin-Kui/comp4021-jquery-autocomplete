@@ -10,7 +10,7 @@ $SUGGESTION_MAX = 10;
 $current_data_array = $_SESSION['autocomplete_data'];
 
 // query term
-$term = $_POST['name'];
+$term = $_GET['name'];
 
 // construct JSON array, format is [ "xx", "yy", "zz" ]
 ?>
@@ -19,11 +19,23 @@ $term = $_POST['name'];
 <?php
 
 $count = 0;
+
+
 foreach ($current_data_array as $key => $val) {
   // Write code to match term to suggestions using case-insensitive matching
   // Retrieve a maximum of 10 suggestions and create JSON
-  /** WRITE CODE HERE, REMOVE THIS LINE AFTER COMPLETION **/
+  if (stripos($val, $term) !== false ){
+    if ($count == 10)
+      break;
+    
+    if ($count++ == 0)
+      echo "\"$val\"";
+    else
+      echo ",\"$val\"";
+  }
+  
 }
+
 
 ?>
 

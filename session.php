@@ -23,7 +23,6 @@ if (! isset($_SESSION['autocomplete_data'])) {
     while(!feof($handle)){
       array_push($local_array, fgets($handle));
     }
-    echo count($local_array);
     
     fclose($handle);
   }
