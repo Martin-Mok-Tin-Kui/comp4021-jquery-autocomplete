@@ -16,15 +16,11 @@
     $( "#searchBox" ).autocomplete({
         // complete the jquery code here
       source: "/suggestion.php",
-      html: true
-     // source: [ "c++", "java", "php", "coldfusion", "javascript", "asp", "ruby" ],
-
-      /*select: function(event, ui) { // select a suggestion, trigger submit
-        // assign value back to the form element        
-           
-      },
-      response: function ( event, ui ) {
-      }*/
+      html: true,
+      select: function(event, ui) { // select a suggestion, trigger submit
+        var url = "/result.php?q=" + ui.item.value;
+        location.href = url;
+      }
     });
   });
   </script>

@@ -7,7 +7,7 @@ require('session.php');
 $current_data_array = $_SESSION['autocomplete_data'];
 
 // query term
-$query = $_POST['q'];
+$query = $_GET['q'];
 
 // if query exists in data source of suggestion
 if (array_key_exists($query, $current_data_array)) {
