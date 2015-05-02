@@ -18,7 +18,8 @@ if (! isset($_SESSION['autocomplete_data'])) {
   // open file
   $handle = @fopen($DATA_SOURCE_FILE, "r");
     while(!feof($handle)){
-      array_push($local_array, fgets($handle));
+      $tmp = fgets($handle);
+      array_push($local_array, substr($tmp, 0, strlen($tmp)-1));
     }
     
     fclose($handle);
