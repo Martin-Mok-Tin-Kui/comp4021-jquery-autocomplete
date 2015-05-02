@@ -10,11 +10,20 @@ $current_data_array = $_SESSION['autocomplete_data'];
 $query = $_GET['q'];
 
 // if query exists in data source of suggestion
-if (array_key_exists($query, $current_data_array)) {
-  // For bonus part, you should write code to update access count
-  // and maintain suggestions in descending order of access count
-  /** WRITE CODE HERE, REMOVE THIS LINE AFTER COMPLETION **/
-}
+// For bonus part, you should write code to update access count
+// and maintain suggestions in descending order of access count
+if (! isset($_SESSION['autocomplete_count_data']))
+  $count_data_array = array();
+else
+  $count_data_array = $_SESSION['autocomplete_count_data'];
+
+if (array_key_exists($query, $count_data_array))
+  $count_data_array[$query]++;
+else
+  $count_data_array[$query] = 1;
+
+
+$_SESSION['autocomplete_count_data'] = $count_data_array;
 
 ?>
 <!doctype html>
@@ -26,6 +35,7 @@ if (array_key_exists($query, $current_data_array)) {
  <body>
  <div>
  Submitted Query: <?php echo '<b>'.$query.'</b>'; ?>
+ You searched this country <?php echo $count_data_array[$query] ?> time(s).
  </div>
  </body>
 </html>
