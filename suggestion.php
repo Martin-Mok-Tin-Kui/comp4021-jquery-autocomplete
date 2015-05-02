@@ -26,11 +26,14 @@ foreach ($current_data_array as $key => $val) {
   if (stripos($val, $term) !== false ){
     if ($count == $SUGGESTION_MAX)
       break;
+    $position = stripos($val, $term);
+    $label = "<b>" . substr($val,0, $position) . "</b>";
+    $label .= substr($val, $position, strlen($term)) . "<b>". substr($val, $position + strlen($term), strlen($val)) . "</b>";
     
     if ($count++ == 0)
-      echo "{\"label\":\"$val\", \"value\":\"$val\"}";
+      echo "{\"label\":\"$label\", \"value\":\"$val\"}";
     else
-      echo ",{\"label\":\"$val\", \"value\":\"$val\"}";
+      echo ",{\"label\":\"$label\", \"value\":\"$val\"}";
   }
   
 }
