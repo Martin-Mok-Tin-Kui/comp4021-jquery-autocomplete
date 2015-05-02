@@ -33,7 +33,7 @@ foreach ($current_data_array as $key => $val) {
     if (array_key_exists($val, $count_data_array))
       $total_count = $count_data_array[$val];
     
-    
+    //for handling bold font
     $position = stripos($val, $term);
     $label = "<b>" . substr($val,0, $position) . "</b>";
     $label .= substr($val, $position, strlen($term)) . "<b>". substr($val, $position + strlen($term), strlen($val)) . "</b>";
